@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-// connecting addNewSmurf & smurfErr from actions
+// import/connecting addNewSmurf & smurfErr from actions
 import {connect} from 'react-redux';
 import {addNewSmurf, setError} from '../actions/index';
 
 const AddForm = (props) => {
 // [x] 1. Connect the errorMessage, setError and addSmurf actions to the AddForm component.
-    const {addNewSmurf, setError, smurfs, error} = props;
+    const {addNewSmurf, setError, error} = props
 
     const [state, setState] = useState({
         name:"",
@@ -70,6 +70,6 @@ const AddForm = (props) => {
 const mapPropsToState = state => ({
     smurfs: state.smurfs,
     error: state.error
-})
+});
 
 export default connect(mapPropsToState, {addNewSmurf, setError})(AddForm);
