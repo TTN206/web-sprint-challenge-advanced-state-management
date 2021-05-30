@@ -1,4 +1,4 @@
-import {FETCH_SMURFS, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAILURE, ADD_SMURFS, SMURFS_ERROR, START_FETCH_SMURFS} from '../actions/index';
+import {FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAILURE, ADD_SMURFS, SMURFS_ERROR, START_FETCH_SMURFS} from '../actions/index';
 
 const initialState = {
     // [x] 1. Adds the following state values into the initialState:

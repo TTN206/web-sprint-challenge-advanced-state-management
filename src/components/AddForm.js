@@ -29,10 +29,10 @@ const AddForm = (props) => {
             setError = "Name, position and nickname fields are required.";
         }
         const newSmurf = {
-        name: state.name,
-        position: state.position,
-        nickname: state.nickname,
-        description: state.description
+            name: state.name,
+            position: state.position,
+            nickname: state.nickname,
+            description: state.description
         }
         addNewSmurf(newSmurf);
     }
@@ -66,9 +66,10 @@ const AddForm = (props) => {
         </form>
     </section>);
 }
-const mapPropsToState = state =>({
+
+const mapPropsToState = state => ({
     smurfs: state.smurfs,
-    error: state.error,
+    error: state.error
 })
 
-export default connect(null, {addNewSmurf, setError})(AddForm);
+export default connect(mapPropsToState, {addNewSmurf, setError})(AddForm);

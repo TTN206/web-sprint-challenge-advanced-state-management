@@ -9,8 +9,8 @@ import {fetchSmurfs} from '../actions/index';
     const{smurfs, isLoading, fetchSmurfs} = props;
     useEffect(()=>{
         fetchSmurfs();
-    }, [])
-        console.log(smurfs);
+    },[])
+        // console.log(smurfs);
 
 // replacing this isLoading var with state loading var
     // const isLoading = false; 
