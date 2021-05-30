@@ -7,7 +7,7 @@ const initialState = {
     //  - a string indicating a possible error message
     smurfs: [],
     isLoading: false,
-    error: 'possible error for smurfs',
+    error: 'possible error for smurfs'
 }
 // [x] 2. Add in the arguments needed to complete a standard reducer function.
 const reducer = (state = initialState, action)=>{
@@ -38,11 +38,13 @@ const reducer = (state = initialState, action)=>{
     case (ADD_SMURFS):
         return({
             ...state,
+            smurfs: [...state.smurfs, action.payload]
         })
     // [x] 7. Add in a reducer case that adds in a value to the error message.    
     case (SMURFS_ERROR):
         return({
-            ...state
+            ...state,
+            error: action.payload
         })
 
         default:

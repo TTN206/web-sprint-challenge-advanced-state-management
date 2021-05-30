@@ -23,5 +23,15 @@ export const fetchSmurfs = () => {
             })
     }
 }
-// [ ] 2. Add a standard action that allows us to add new smurf (including the name, nickname, position, summary)
-// [ ] 3. Add a standard action that allows us to set the value of the error message slice of state.
+// [x] 2. Add a standard action that allows us to add new smurf (including the name, nickname, position, summary)
+export const addNewSmurf = newSmurf =>{
+    return ({
+        type: ADD_SMURFS, payload: newSmurf
+    })
+}
+// [x] 3. Add a standard action that allows us to set the value of the error message slice of state.
+export const setError = error =>{
+    return ({
+        type: SMURFS_ERROR, payload: error
+    })
+}

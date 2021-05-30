@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
+// connecting addNewSmurf & smurfErr from actions
+import {connect} from 'react-redux';
+import {addNewSmurf, setError} from '../actions/index';
 
 const AddForm = (props) => {
+// [ ] 1. Connect the errorMessage, setError and addSmurf actions to the AddForm component.
+    const {addNewSmurf, setError, smurfs, error} = props;
+
     const [state, setState] = useState({
         name:"",
         position:"",
@@ -15,14 +21,16 @@ const AddForm = (props) => {
         });
     }
 
+// [ ] 3. Within the handleSubmit function, replace the static assignment to errorMessage with a call to the setError action. Test that an error is displayed when this validation code fails.
+// [ ] 4. Within the handleSubmit function, call your addSmurf action with the smurf name, position, nickname and summury passed as arguments. Test that a smurf is correctly added to when the form is submitted.
     const handleSubmit = e => {
         e.preventDefault();
         if (state.name === "" || state.position === "" || state.nickname === "") {
-            errorMessage = "Name, position and nickname fields are required.";
+            setError = "Name, position and nickname fields are required.";
         }
     }
-
-    const errorMessage = "";
+// [ ] 2. Replace all instances of the errorMessage static variable with your error message state value. 
+    // const error = "";
 
     return(<section>
         <h2>Add Smurf</h2>
@@ -44,17 +52,15 @@ const AddForm = (props) => {
                 <textarea onChange={handleChange} value={state.description} name="description" id="description" />
             </div>
             {
-                errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {errorMessage}</div>
+                error && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {error}</div>
             }
             <button>Submit Smurf</button>
         </form>
     </section>);
 }
+const mapPropsToState = state =>({
+    smurfs: state.smurfs,
+    error: state.error,
+})
 
-export default AddForm;
-
-//Task List:
-//1. Connect the errorMessage, setError and addSmurf actions to the AddForm component.
-//2. Replace all instances of the errorMessage static variable with your error message state value. 
-//3. Within the handleSubmit function, replace the static assignment to errorMessage with a call to the setError action. Test that an error is displayed when this validation code fails.
-//4. Within the handleSubmit function, call your addSmurf action with the smurf name, position, nickname and summury passed as arguments. Test that a smurf is correctly added to when the form is submitted.
+export default connect(null, {addNewSmurf, setError})(AddForm);
