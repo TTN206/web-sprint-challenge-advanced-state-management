@@ -29,6 +29,7 @@ const AddForm = (props) => {
     //     if (state.name === "" || state.position === "" || state.nickname === "") {
     //         setError = "Name, position and nickname fields are required.";
     //     }
+// this would still push a newSmurf regardless of missing info that it doesnt not yet have    
     //     const newSmurf = {
     //         name: state.name,
     //         position: state.position,
@@ -41,7 +42,7 @@ const AddForm = (props) => {
         e.preventDefault();
         if (state.name === "" || state.position === "" || state.nickname === "") {
             setError( "Name, position and nickname fields are required." );
-        }else{
+        }else{ // instead of creating a new object of newSmurf just return state
             addNewSmurf( state )
         }
     }
