@@ -1,19 +1,24 @@
+import {} from '../actions/index';
 
 export const initialState = {
+    // [x] 1. Adds the following state values into the initialState:
+    //  - an array of smurfs
+    //  - a boolean indicating if the app is loading
+    //  - a string indicating a possible error message
+    smurfs: [],
+    isLoading: false,
+    error: 'possible error for smurfs',
 }
-
-const reducer = ()=>{
+// [x] 2. Add in the arguments needed to complete a standard reducer function.
+const reducer = (state = initialState, action)=>{
+    switch(action.type){
+        default:
+            return state;
+    }
 }
 
 export default reducer;
 
-//Task List:
-//1. Adds the following state values into the initialState:
-//  - an array of smurfs
-//  - a boolean indicating if the app is loading
-//  - a string indicating a possible error message
-
-//2. Add in the arguments needed to complete a standard reducer function.
 //3. Add in a reducer case to accomidate the start of a smurf fetch.
 //4. Add in a reducer case to accomidate the successful smurf api fetch.
 //5. Add in a reducer cases to accomidate the failed smurf api fetch.
